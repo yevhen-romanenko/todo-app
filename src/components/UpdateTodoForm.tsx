@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { TodoFormProps } from 'src/interfaces';
 
-const placeholderText: string = "Enter name of todo";
+const placeholderText: string = "Update todo";
 
+interface TodoFormProps {
+    onAdd(title: string) : void
+}
 
-export const TodoForm: React.FunctionComponent<TodoFormProps> = (props) => {
+export const UpdateForm: React.SFC<TodoFormProps> = (props) => {
 
     const [title, setTitle] = React.useState<string>('');
 
@@ -20,9 +22,10 @@ export const TodoForm: React.FunctionComponent<TodoFormProps> = (props) => {
     }
 
     return (
-        <div className="input-field margintop2">
-            <input 
-                onChange={changeHandler} 
+        <form>
+            <React.Fragment>
+                <div className="input-field margintop2"></div>
+                <input onChange={changeHandler} 
                 value={title} 
                 type="text" 
                 id="title" 
@@ -32,6 +35,7 @@ export const TodoForm: React.FunctionComponent<TodoFormProps> = (props) => {
             <label htmlFor="title" className="active">
                 {placeholderText}
             </label>
-        </div>
+            </React.Fragment>
+        </form>
     )
 }

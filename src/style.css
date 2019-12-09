@@ -1,5 +1,3 @@
-
-
 .paddingx1 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -10,12 +8,13 @@
 }
 
 .todo {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .todo.completed span {
     text-decoration: line-through;
 }
+
 .todo label {
     width: 100%;
     display: flex;

@@ -8,6 +8,7 @@ import { ITodo } from './interfaces';
 const App: React.FunctionComponent = () => {
 
     const [todos, setTodos] = React.useState<ITodo[]>([]);
+    //const [tasks , setTasks] = React.useState<ITodo[]>([]);
 
     React.useEffect(() => {
         const savedStorage = JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[];
@@ -21,7 +22,6 @@ const App: React.FunctionComponent = () => {
     const addTodoHandler = (title: string) => {
         
         //console.log('Add new Todo', title);
-
         const newTodo: ITodo = {
             title: title,
             id: Date.now(),
@@ -48,7 +48,18 @@ const App: React.FunctionComponent = () => {
         
     }
 
-    const updateHandler = (id: number) => {}
+    const updateHandler = (event: React.ChangeEvent<HTMLInputElement>, id: number) => {
+        
+        const newTodoState: ITodo[] = [...todos];
+
+        newTodoState.find((todo => {
+            if(todo.id === id) {
+                todo.title = event.target.value
+            }
+        }))
+
+        setTodos(newTodoState);
+    }
 
 
     return (
@@ -61,6 +72,8 @@ const App: React.FunctionComponent = () => {
                 todos={todos}
                 onComplete={completeTodoHandler}
                 onRemove={removeHandler}
+                //onUpdate={updateHandler}
+                
             />        
         </div>
     </>
