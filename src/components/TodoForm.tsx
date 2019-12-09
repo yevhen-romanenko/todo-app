@@ -2,8 +2,11 @@ import * as React from 'react';
 
 const placeholderText: string = "Enter name of todo";
 
+interface TodoFormProps {
+    onAdd(title: string) : void
+}
 
-export const TodoForm: React.FunctionComponent = () => {
+export const TodoForm: React.FunctionComponent<TodoFormProps> = (props) => {
 
     const [title, setTitle] = React.useState<string>('');
 
@@ -13,8 +16,8 @@ export const TodoForm: React.FunctionComponent = () => {
 
     const keyPressHandler = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
-            console.log(title);
-            
+            props.onAdd(title);            
+            setTitle('');            
         }
     }
 
