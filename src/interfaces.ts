@@ -14,3 +14,7 @@ export interface TodoListProps {
 export interface TodoFormProps {
     onAdd(title: string) : void
 }
+
+export interface NavbarProps {
+    todos: ITodo[];
+}

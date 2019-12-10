@@ -6,7 +6,7 @@ interface TodoFormProps {
     onAdd(title: string) : void
 }
 
-export const UpdateForm: React.SFC<TodoFormProps> = (props) => {
+export const UpdateForm: React.FunctionComponent<TodoFormProps> = (props) => {
 
     const [title, setTitle] = React.useState<string>('');
 
