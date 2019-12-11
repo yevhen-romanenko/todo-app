@@ -8,7 +8,7 @@ export interface TodoListProps {
     todos: ITodo[]
     onComplete(id: number) : void
     onRemove(id: number) : void
-    //onUpdate(event: React.ChangeEvent<HTMLInputElement>, id: number): void
+    onUpdate(id: number): void
 }
 
 export interface TodoFormProps {

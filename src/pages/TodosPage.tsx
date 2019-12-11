@@ -46,17 +46,19 @@ export const TodosPage: React.FunctionComponent = () => {
         
     }
 
-    const updateHandler = (event: React.ChangeEvent<HTMLInputElement>, id: number) => {
+    const updateHandler = (id: number) => {
         
-        const newTodoState: ITodo[] = [...todos];
+        const canUpdate = window.confirm('Are u sure want to update this todo item?')
 
-        newTodoState.find((todo => {
-            if(todo.id === id) {
-                todo.title = event.target.value
-            }
-        }))
+        //const newTodoState: ITodo[] = [...todos];
 
-        setTodos(newTodoState);
+        //newTodoState.find((todo => {
+           // if(todo.id === id) {
+                //todo.title = event.target.value
+          //  }
+       // }))
+
+        //setTodos(newTodoState);
     }
 
 
@@ -71,7 +73,7 @@ export const TodosPage: React.FunctionComponent = () => {
                 todos={todos}
                 onComplete={completeTodoHandler}
                 onRemove={removeHandler}
-                //onUpdate={updateHandler}
+                onUpdate={updateHandler}
                 
             />
         </div>   
